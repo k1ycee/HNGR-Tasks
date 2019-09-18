@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">HNG</string>
+    <string name="Rem">com.example.hng.Rem</string>
+    <string name="password">com.example.hng.password</string>
+    <string name="mail">com.example.hng.mail</string>
+    <string name="name">com.example.hng.name</string>
+    <string name="birth">com.example.hng.birthday</string>
+    <string name="phone">com.example.hng.phone</string>
+
+
+</resources>
