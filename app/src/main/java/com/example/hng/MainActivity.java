@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
-
         name = (EditText) findViewById(R.id.usr_name);
         birthday = (EditText) findViewById(R.id.usr_birth);
         mail = (EditText) findViewById(R.id.usr_mail);
@@ -68,30 +67,30 @@ public class MainActivity extends AppCompatActivity {
                     edit.putString(getString(R.string.phone), pn);
                     edit.apply();
 
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(MainActivity.this, Dashboard.class);
                     startActivity(intent);
 
                 }else {
-                       edit.putString(getString(R.string.Rem),"False");
-                        edit.apply();
+                    edit.putString(getString(R.string.Rem),"False");
+                    edit.apply();
 
-                        edit.putString(getString(R.string.mail), "");
-                        edit.apply();
+                    edit.putString(getString(R.string.mail), "");
+                    edit.apply();
 
-                        edit.putString(getString(R.string.password), "");
-                        edit.apply();
+                    edit.putString(getString(R.string.password), "");
+                    edit.apply();
 
-                        edit.putString(getString(R.string.name),"");
-                        edit.apply();
+                    edit.putString(getString(R.string.name),"");
+                    edit.apply();
 
-                        edit.putString(getString(R.string.birth),"");
-                        edit.apply();
+                    edit.putString(getString(R.string.birth),"");
+                    edit.apply();
 
-                        edit.putString(getString(R.string.phone),"");
-                        edit.apply();
+                    edit.putString(getString(R.string.phone),"");
+                    edit.apply();
 
-                        Intent intent = new Intent(MainActivity.this,Dashboard.class);
-                        startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this,Dashboard.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -106,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         String bt = pref.getString(getString(R.string.birth),"");
         String phn = pref.getString(getString(R.string.phone),"");
 
+
         mail.setText(ml);
         password.setText(pass);
         name.setText(usr);
@@ -118,6 +118,5 @@ public class MainActivity extends AppCompatActivity {
         if (chkbox.equals("False")){
             Rem.setChecked(false);
         }
-
     }
 }
