@@ -26,10 +26,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        name = (EditText) findViewById(R.id.laname);
-        pss = (EditText) findViewById(R.id.lpaso);
-        log = (Button) findViewById(R.id.loglogin);
-        reg = (Button) findViewById(R.id.logSignup);
+        name =  findViewById(R.id.laname);
+        pss =  findViewById(R.id.lpaso);
+        log =  findViewById(R.id.loglogin);
+        reg =  findViewById(R.id.logSignup);
 
 
         spf = PreferenceManager.getDefaultSharedPreferences(this);
