@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -67,30 +68,21 @@ public class MainActivity extends AppCompatActivity {
                     edit.putString(getString(R.string.phone), pn);
                     edit.apply();
 
+
+                    if (TextUtils.isEmpty(ail) && TextUtils.isEmpty(nm)){
+                        name.setError("This can't be left blank");
+                        name.requestFocus();
+                        return;
+                    }
+                    if (TextUtils.isEmpty(pss)){
+                        password.setError("This can't be left blank");
+                        password.requestFocus();
+                        return;
+                    }
+
                     Intent intent = new Intent(MainActivity.this, Dashboard.class);
                     startActivity(intent);
 
-                }else {
-                    edit.putString(getString(R.string.Rem),"False");
-                    edit.apply();
-
-                    edit.putString(getString(R.string.mail), "");
-                    edit.apply();
-
-                    edit.putString(getString(R.string.password), "");
-                    edit.apply();
-
-                    edit.putString(getString(R.string.name),"");
-                    edit.apply();
-
-                    edit.putString(getString(R.string.birth),"");
-                    edit.apply();
-
-                    edit.putString(getString(R.string.phone),"");
-                    edit.apply();
-
-                    Intent intent = new Intent(MainActivity.this,Dashboard.class);
-                    startActivity(intent);
                 }
             }
         });

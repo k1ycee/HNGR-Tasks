@@ -6,10 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.style.LeadingMarginSpan;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,15 +40,26 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String nom = name.getText().toString();
-                et.putString(getString(R.string.name),nom);
-                et.commit();
-
                 String ss = pss.getText().toString();
-                et.putString(getString(R.string.password),ss);
-                et.commit();
 
-                Intent dashbd = new Intent(LoginActivity.this, Dashboard.class);
-                startActivity(dashbd);
+                if (TextUtils.isEmpty(nom)){
+                    name.setError("Please Enter a valid Name");
+                    name.requestFocus();
+                }
+                if (TextUtils.isEmpty(ss)){
+                    pss.setError("Please Enter a Valid Password");
+                    pss.requestFocus();
+                }
+
+                String thusr = spf.getString(getString(R.string.name),"");
+                String thpss = spf.getString(getString(R.string.password),"");
+
+                if((name.equals(thusr) && pss.equals(thpss))){
+                    Intent intent = new Intent(LoginActivity.this, Dashboard.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(), "User does not exist", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
