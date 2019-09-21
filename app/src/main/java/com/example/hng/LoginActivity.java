@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 String thusr = spf.getString(getString(R.string.name),"");
                 String thpss = spf.getString(getString(R.string.password),"");
 
-                if((name.equals(thusr) && pss.equals(thpss))){
+                if((nom.equals(thusr) && ss.equals(thpss))){
                     Intent intent = new Intent(LoginActivity.this, Dashboard.class);
                     startActivity(intent);
                 }else{
